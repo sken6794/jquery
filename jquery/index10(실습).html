@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+
+    <script
+      type="text/javascript"
+      src="node_modules/jquery/dist/jquery.min.js"
+    ></script>
+
+    <style type="text/css">
+      .center {
+        text-align: center;
+      }
+      .content,
+      .content .left,
+      .content .right {
+        width: 50%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 5px;
+      }
+      .content {
+        overflow: hidden;
+        border: 1px solid #777;
+      }
+      .content .left,
+      .content .right {
+        float: left;
+      }
+
+      .left .inner,
+      .right .inner {
+        border: 1px solid #777;
+        height: 300px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="center">
+        <h2>야간모드</h2>
+        <button type="button" id="btn1" class="dark">어둡게보기</button>
+        <button type="button" id="btn2" class="name">이름보기</button>
+        <hr />
+      </div>
+    </header>
+
+    <section>
+      <div class="content">
+        <div class="left">
+          <div class="inner"><img src="sample.png" /></div>
+        </div>
+        <div class="right">
+          <div class="inner" id="in1">
+            <p>
+              자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는
+              웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장
+              객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은
+              런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고
+              있다
+            </p>
+            <a href="https://www.naver.com">위키백과</a>
+          </div>
+          <div class="inner" id="in2" style="display: none">
+            <p>개인 프로필 정보 1</p>
+            <p>개인 프로필 정보 2</p>
+            <p>개인 프로필 정보 3</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      $('#btn1').click(() => {
+        if ($('#btn1').attr('class') === 'dark') {
+          $('body').css('backgroundColor', 'black');
+          $(event.target).closest('.center').find('h2').css('color', 'white');
+          $(event.target).html('밝게보기');
+          $('.right').find('.inner').css('color', 'white');
+          $(event.target).removeClass('dark');
+          $(event.target).toggleClass('white');
+        } else {
+          $('body').css('backgroundColor', 'white');
+          $(event.target).closest('.center').find('h2').css('color', 'black');
+          $(event.target).html('어둡게보기');
+          $('.right').find('.inner').css('color', 'black');
+          $(event.target).removeClass('white');
+          $(event.target).toggleClass('dark');
+        }
+      });
+
+      $('#btn2').click(() => {
+        if ($('#btn2').attr('class') === 'name') {
+          $('.right').find('#in1').css('display', 'none');
+          $('.right').find('#in2').css('display', '');
+          $(event.target).removeClass('name');
+          $(event.target).toggleClass('cont');
+        } else {
+          $('.right').find('#in1').css('display', '');
+          $('.right').find('#in2').css('display', 'none');
+          $(event.target).removeClass('cont');
+          $(event.target).toggleClass('name');
+        }
+      });
+    </script>
+  </body>
+</html>

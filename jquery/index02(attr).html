@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="node_modules/jquery/dist/jquery.min.js"
+    ></script>
+  </head>
+  <body>
+    <input type="text" id="test1" />
+    <img src="#" alt="" class="test2" />
+    <img src="#" alt="" class="test3" width="" height="" />
+
+    <script>
+      //속성값의 확인
+      console.log($('#test1').attr('id')); //test1이라는 아이디의 id 값을 확인
+      //속성값의 변경
+      console.log($('#test1').attr('id', 'change'));
+      $('.test2').attr('src', 'sample.png');
+      //여러 개의 속성을 변경할 때는 객체를 전달하여 객체의 key에 속성명을 입력
+      $('.test3').attr({
+        src: 'sample.png',
+        width: '500',
+        height: '300',
+      });
+    </script>
+  </body>
+</html>

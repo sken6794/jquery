@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="node_modules/jquery/dist/jquery.min.js"
+    ></script>
+  </head>
+  <body>
+    <button id="btn" class="btn btn-default">클래스 제어 테스트</button>
+
+    <button id="toggle" class="dark">토글토글</button>
+
+    <script>
+      //js
+      //document.getElementById('btn').classList.add('xxx');
+      //document.getElementById('btn').classList.remove('btn');
+      //위의 작업을 거치면 btn-default xxx 만 남아있게 된다.
+
+      //jquery
+      $('#btn').addClass('xxx');
+      $('#btn').removeClass('xxx');
+
+      //toggle 확인
+      $('#toggle').click(() => {
+        $('#toggle').toggleClass('aa');
+      });
+    </script>
+  </body>
+</html>

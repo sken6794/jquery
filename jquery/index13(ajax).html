@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="node_modules/jquery/dist/jquery.min.js"
+    ></script>
+  </head>
+  <body>
+    <script>
+      // $.ajax({
+      //   url: 'http://localhost:8181/api/v1/getInfo',
+      //   type: 'post',
+      //   contentType: 'application/json', //내가 보내는 데이터에 대한 타입
+      //   data: JSON.stringify({ num: 1, name: '홍순자' }),
+      //   // dataType: 'json', //서버에서 돌려받은 데이터에 대한 타입
+      //   success: (data) => {
+      //     //요청 성공시 콜백 받을 함수
+      //     alert('성공!');
+      //     console.log(data);
+      //   },
+      //   error: (s, e) => {
+      //     alert('에러 발생..ㅠ');
+      //     console.log(s, e);
+      //   },
+      // });
+
+      $.ajax({
+        type: 'get',
+        url: 'http://localhost:8181/api/v1/getData?num=1&name=홍길동',
+        success: (data) => {
+          console.log(data);
+        },
+        error: (s, e) => {
+          console.log(s, e);
+        },
+      });
+    </script>
+  </body>
+</html>
